@@ -6,7 +6,11 @@ import {
   signup,
   signupConfirm,
   signin
-} from "./src/functions"
+} from "./src/functions";
+
+import {
+  userTable
+} from "./src/models";
 
 const serverlessConfiguration: AWS = {
   service: 'pxjstore-api',
@@ -22,6 +26,8 @@ const serverlessConfiguration: AWS = {
     },
     environment: {
       S3_BUCKET: "${self:custom.bucketName}",
+      USER_TABLE: "${self:custom.userTableName}",
+      USER_STATUS_INDEX: "${self:custom.userStatusIndex}",
     },
     apiName: "${self:custom.generalName}",
     stage: "dev",
@@ -60,6 +66,8 @@ const serverlessConfiguration: AWS = {
   custom: {
     generalName: "${self:service}-${self:provider.stage}",
     bucketName: "pxjstore-s3-${self:provider.stage}",
+    userTableName: "pxjstore-user-${self:provider.stage}",
+    userStatusIndex: "userStatus-index",
     esbuild: {
       bundle: true,
       minify: false,
@@ -139,7 +147,9 @@ const serverlessConfiguration: AWS = {
         Properties: {
           BucketName: "${self:custom.bucketName}",
         },
-      }
+      },
+
+      userTable
 
     },
   }
