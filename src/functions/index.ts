@@ -5,3 +5,4 @@ export { default as signupConfirm } from './signupConfirm';
 export { default as signin } from './signin';
 export { default as userCreate } from './user/create';
 export { default as usersGet } from './user/get';
+export { default as userUpdateStatus } from './user/updateStatus'

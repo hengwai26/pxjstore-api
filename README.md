@@ -93,11 +93,11 @@ Storyboard:
     - projection of others attributes when using GSI
 
   [x] How to Create Item ?
-  [ ] How to Get Item ?
-  [ ] How to Query using PK and SK ?
-  [ ] How to Query on GSI ?
-  [ ] How to Update a Item ?
-  [ ] How to delete a Item ? 
+  [x] How to Get Item ?
+  [x] How to Query using PK and SK ?
+  [x] How to Query on GSI ?
+  [x] How to Update a Item ?
+  [x] How to delete a Item ? 
 
   S3:
   [x] How to deploy a bucket ?

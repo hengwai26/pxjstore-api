@@ -7,7 +7,8 @@ import {
   signupConfirm,
   signin,
   userCreate,
-  usersGet
+  usersGet,
+  userUpdateStatus,
 } from "./src/functions";
 
 import {
@@ -62,7 +63,8 @@ const serverlessConfiguration: AWS = {
     signupConfirm,
     signin,
     userCreate,
-    usersGet
+    usersGet,
+    userUpdateStatus
   },
   package: { 
     individually: true 
