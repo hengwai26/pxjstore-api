@@ -92,7 +92,7 @@ Storyboard:
   [x] What is GSI Projections ?
     - projection of others attributes when using GSI
 
-  [ ] How to Create Item ?
+  [x] How to Create Item ?
   [ ] How to Get Item ?
   [ ] How to Query using PK and SK ?
   [ ] How to Query on GSI ?

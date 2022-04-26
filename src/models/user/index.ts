@@ -7,7 +7,7 @@ export default {
       { AttributeName: "userStatus", AttributeType: "S" },
     ],
     KeySchema: [
-      { AttributeName: "userId", keyType: "HASH" }
+      { AttributeName: "userId", KeyType: "HASH" }
     ],
     GlobalSecondaryIndexes: [
       {
@@ -20,6 +20,6 @@ export default {
         }
       }
     ],
-    BillingMode: "PAY_PER_REQEUST"
+    BillingMode: "PAY_PER_REQUEST"
   }
 }

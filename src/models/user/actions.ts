@@ -21,7 +21,7 @@ export interface IUser {
 }
 
 // insert user into table
-export function createUser(userdata: IUser) {
+export function createUser(userdata: any) {
   const user: IUser = {
     ...userdata,
     userStatus: UserStatus.ACTIVE,
