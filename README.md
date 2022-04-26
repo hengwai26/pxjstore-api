@@ -73,10 +73,26 @@ Storyboard:
   [x] How to refresh token?
 
   DynamoDB
-  [ ] How to set partition key (HASH)?
-  [ ] How to set Sort key (RANGE)?
-  [ ] How to Set GSI?
-  [ ] How to set GSI projections?
+  [x] How to set partition key (HASH)?
+    - refer to cloud formation:
+      - Properties.keySchema: [ { AttributeName, KeyType: 'HASH' } ]
+
+  [x] How to set Sort key (RANGE)?
+    - refer to cloud formation:
+      - Properties.keySchema: [ { AttributeName, keyType: 'RANGE' } ]
+
+  [x] How to Set GSI?
+    - refer to cloud formation:
+      - Properties.GlobalSecondaryIndexes: [ { IndexName, KeySchema, Projection: { ProjectionType } } ]
+
+  [x] How to set GSI projections ?
+    - refer to cloud formation:
+      - Properties.GlobalSecondaryIndexes: [ { IndexName, KeySchema, Projection: { ProjectionType } } ]
+
+  [x] What is GSI Projections ?
+    - projection of others attributes when using GSI
+
+  [ ] How to Create Item ?
   [ ] How to Get Item ?
   [ ] How to Query using PK and SK ?
   [ ] How to Query on GSI ?
@@ -85,15 +101,45 @@ Storyboard:
 
   S3:
   [x] How to deploy a bucket ?
-  [ ] How to upload an object to s3 ?
-  [ ] How to fetch an object In s3 ?
-  [ ] How to fetch all objects in a “folder” ?
-  [ ] How to delete an object in s3?
-  [ ] How to copy object from one key to another key?
-  [ ] How to copy object from one bucket to another?
-  [ ] How to use presigned post url for upload ?
-  [ ] How to generate signed url for object ?
-  [ ] How to set up trigger function for s3 onCreate?
-  [ ] How to read s3 event from lambda ?
-  [ ] How to get key from event?
-  [ ] How to get object size from event?
+    - refer to cloud formation template.
+
+  [x] How to upload an object to s3 ?
+    - refer to aws-sdk/s3 client side.
+    - use s3.putObject method.
+    - if frontend unable to use aws-sdk. backend prepare api endpoint to accept object as buffer then upload to s3.
+
+  [x] How to fetch an object In s3 ?
+    - use s3.getObject
+
+  [x] How to fetch all objects in a “folder” ?
+    - use s3.listObject
+    - remember to include "folder path" inside your key.
+
+  [x] How to delete an object in s3?
+    - s3.deleteObjects
+
+  [x] How to copy object from one key to another key?
+    - use s3.copyObject
+
+  [x] How to copy object from one bucket to another?
+    - use s3.copyObject. provide copy source and key.
+  
+  [x] How to use presigned post url for upload ?
+    - s3.createPresignedPost (need to look more into this)
+  
+  [x] How to generate signed url for object ?
+    - s3.getSignedUrl
+    - s3.getSignedUrlPromise
+  
+  [x] How to set up trigger function for s3 onCreate?
+    - setup inside serverless function
+    - under events, regiester s3 object and set event to s3:ObjectCreated:*
+  
+  [x] How to read s3 event from lambda ?
+    - Records attribute will append inside event object
+  
+  [x] How to get key from event?
+    - event.Records[0].s3.object.key
+  
+  [x] How to get object size from event?
+    - event.Records[0].s3.object.size
